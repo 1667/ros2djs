@@ -25,15 +25,22 @@
       height : 250
     });
 
+    
+
     // Setup the map client.
     var gridClient = new ROS2D.OccupancyGridClient({
       ros : ros,
       rootObject : viewer.scene
     });
+    
     // Scale the canvas to fit to the map
     gridClient.on('change', function() {
       viewer.scaleToDimensions(gridClient.currentGrid.width, gridClient.currentGrid.height);
       viewer.shift(gridClient.currentGrid.pose.position.x, gridClient.currentGrid.pose.position.y);
+      // zoomviewer.startZoom(0,0);
+      // zoomviewer.zoom(1.4);
+    //   panviewer.startPan(0,0);
+    // panviewer.pan(-20,-100);
     });
   }
 </script>
